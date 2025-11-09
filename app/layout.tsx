@@ -1,18 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-
-const cormorant = Cormorant_Garamond({
-  weight: ['300', '400', '500', '600', '700'],
-  subsets: ["latin"],
-  variable: '--font-cormorant',
-});
-
-const inter = Inter({
-  weight: ['300', '400', '500', '600'],
-  subsets: ["latin"],
-  variable: '--font-inter',
-});
 
 export const metadata: Metadata = {
   title: "Nothing — The Ultimate Luxury",
@@ -26,7 +13,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cormorant.variable} ${inter.variable} antialiased bg-cream text-charcoal`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased bg-cream text-charcoal">
         {children}
       </body>
     </html>
